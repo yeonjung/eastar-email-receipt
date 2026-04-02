@@ -670,8 +670,7 @@ const EmailReceiptPage = () => {
                       <p className="text-sm font-bold text-[#001B2A] break-all">{p.name}</p>
                     </div>
                     {p.fare && (() => {
-                      const isInfant = p.type === '유아';
-                      const color = isInfant ? 'text-[#374151]' : 'text-[#D6001C]';
+                      const color = 'text-[#D6001C]';
                       return (
                         <div className="flex items-center gap-1 flex-shrink-0">
                           <span className={`text-sm font-bold ${color}`}>KRW</span>
