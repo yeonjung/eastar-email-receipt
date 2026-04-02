@@ -598,12 +598,12 @@ const EmailReceiptPage = () => {
           {/* 예약번호 + 예매날짜 행 */}
           <div className="flex justify-end items-center gap-4 flex-wrap">
             <div className="flex items-center gap-2">
-              <span className="text-base font-black text-[#111827]">{tr.bookingNo}</span>
-              <span className="text-sm font-bold text-[#D6001C]">{reservation.bookingNo}</span>
+              <span className="text-[14px] font-normal text-[#111827] leading-[1.3]">{tr.bookingNo}</span>
+              <span className="text-[14px] font-bold text-[#D6001C] tracking-[-0.5px]">{reservation.bookingNo}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-base font-black text-[#111827]">{tr.bookingDate}</span>
-              <span className="text-sm font-bold text-[#374151]">{reservation.bookingDate}</span>
+              <span className="text-[14px] font-normal text-[#111827] leading-[1.3]">{tr.bookingDate}</span>
+              <span className="text-[14px] font-bold text-[#374151] tracking-[-0.5px]">{reservation.bookingDate}</span>
             </div>
           </div>
 
