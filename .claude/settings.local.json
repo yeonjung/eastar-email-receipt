@@ -31,7 +31,10 @@
       "Bash(/Users/haley/easter-test/.gitignore:*)",
       "Bash(git -C /Users/haley/easter-test init)",
       "Bash(git -C /Users/haley/easter-test add .)",
-      "Bash(git -C /Users/haley/easter-test status --short)"
+      "Bash(git -C /Users/haley/easter-test status --short)",
+      "Bash(git -C:*)",
+      "Bash(git -C /Users/haley/easter-test log --oneline -1)",
+      "Bash(npx vercel:*)"
     ]
   }
 }

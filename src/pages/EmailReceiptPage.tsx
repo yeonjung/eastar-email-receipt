@@ -277,7 +277,8 @@ interface PassengerFare {
 interface Passenger { name: string; seat: string; type: string; ticketNo: string; fare?: PassengerFare }
 interface Location  { city: string; code: string; date: string; time: string; terminal: string }
 interface Itinerary { id: number; type: string; flightNo: string; airline: string; departure: Location; arrival: Location; duration: string; fareType?: 'special' | 'regular'; baggageKg?: number | null }
-interface Payment   { fare: number; tax: number; ancillary?: number; total: number; currency: string; paymentMethod: string; cardInfo: string; approvalNo: string; paymentDate: string }
+interface PaymentRow { date: string; method: string; amount: number }
+interface Payment   { fare: number; tax: number; ancillary?: number; total: number; currency: string; rows: PaymentRow[] }
 interface Reservation { pnr: string; bookingDate: string; bookingNo: string; status: string; passengers: Passenger[]; itineraries: Itinerary[]; payment: Payment }
 
 /* ══════════════════════════════════════════════════════════
@@ -362,13 +363,17 @@ const ITINERARIES: Itinerary[] = [
   },
 ];
 
-const PAYMENT_BASE: Omit<Payment, 'fare' | 'tax' | 'total'> = {
-  currency: 'KRW',
-  paymentMethod: 'Naver Pay',
-  cardInfo: 'Hyundai Card (1234 5678 ***** ****)',
-  approvalNo: '20261015 NP1373272451',
-  paymentDate: '2026-02-13 14:26:45 (GMT+9)',
-};
+const PAYMENT_ROWS_V1: PaymentRow[] = [
+  { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 1162000 },
+  { date: '2026-03-23 12:26:45 (GMT+9)', method: '신용카드', amount: 15000 },
+  { date: '2026-03-23 13:26:45 (GMT+9)', method: '간편결제', amount: 15000 },
+];
+const PAYMENT_ROWS_V2: PaymentRow[] = [
+  { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 242500 },
+];
+const PAYMENT_ROWS_V3: PaymentRow[] = [
+  { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 118000 },
+];
 
 const RESERVATIONS: Record<Ver, Reservation> = {
   /* ── Ver1: 성인+소아+유아 3명, 현재 전체 화면 ── */
@@ -451,7 +456,7 @@ const RESERVATIONS: Record<Ver, Reservation> = {
         },
       },
     ],
-    payment: { ...PAYMENT_BASE, fare: 127000, tax: 64000, total: 233000 },
+    payment: { fare: 127000, tax: 64000, total: 1192000, currency: 'KRW', rows: PAYMENT_ROWS_V1 },
   },
 
   /* ── Ver2: 성인 1명 + 부가서비스 있음 ── */
@@ -490,7 +495,7 @@ const RESERVATIONS: Record<Ver, Reservation> = {
         },
       },
     ],
-    payment: { ...PAYMENT_BASE, fare: 78000, tax: 40000, ancillary: 124500, total: 242500 },
+    payment: { fare: 78000, tax: 40000, ancillary: 124500, total: 242500, currency: 'KRW', rows: PAYMENT_ROWS_V2 },
   },
 
   /* ── Ver3: 성인 1명 + 부가서비스 없음 (섹션 자동 제거 확인용) ── */
@@ -512,7 +517,7 @@ const RESERVATIONS: Record<Ver, Reservation> = {
         },
       },
     ],
-    payment: { ...PAYMENT_BASE, fare: 78000, tax: 40000, total: 118000 },
+    payment: { fare: 78000, tax: 40000, total: 118000, currency: 'KRW', rows: PAYMENT_ROWS_V3 },
   },
 };
 
@@ -713,19 +718,21 @@ const EmailReceiptPage = () => {
           {/* 결제정보 */}
           <section className="flex flex-col gap-4">
             <h2 className="text-base font-black text-[#1F2937]">{tr.paymentSection}</h2>
-            <div className="bg-white border border-[#D8DAE0] rounded-xl px-6 py-4 flex flex-col gap-4">
-              <div className="flex justify-between items-center gap-3">
-                <span className="text-sm font-bold text-[#374151] flex-shrink-0">{tr.methodLabel}</span>
-                <span className="text-sm font-bold text-[#374151] text-right break-words">{reservation.payment.paymentMethod}</span>
+            <div className="border border-[#D8DAE0] rounded-xl overflow-hidden text-xs font-bold">
+              {/* 헤더 */}
+              <div className="bg-[#F9FAFB] flex items-start justify-between px-4 py-4 text-[#6B7280]">
+                <span className="flex-[1.2]">{tr.dateLabel}</span>
+                <span className="flex-1 text-center">{tr.methodLabel}</span>
+                <span className="flex-1 text-right">{tr.amountLabel}</span>
               </div>
-              <div className="flex justify-between items-start gap-3">
-                <span className="text-sm font-bold text-[#374151] flex-shrink-0">{tr.dateLabel}</span>
-                <span className="text-sm font-bold text-[#374151] text-right break-all">{reservation.payment.paymentDate}</span>
-              </div>
-              <div className="flex justify-between items-center gap-3">
-                <span className="text-sm font-bold text-[#374151] flex-shrink-0">{tr.amountLabel}</span>
-                <span className="text-sm font-bold text-[#374151] tabular-nums">{reservation.payment.total.toLocaleString()}</span>
-              </div>
+              {/* 행 */}
+              {reservation.payment.rows.map((row, i) => (
+                <div key={i} className="flex items-center justify-between px-4 py-3 border-t border-[#D8DAE0] text-[#1F2937]">
+                  <span className="flex-[1.2] break-all pr-2">{row.date}</span>
+                  <span className="flex-1 text-center">{row.method}</span>
+                  <span className="flex-1 text-right tabular-nums">{row.amount.toLocaleString()}</span>
+                </div>
+              ))}
             </div>
           </section>
 
