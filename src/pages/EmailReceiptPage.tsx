@@ -79,8 +79,6 @@ const translations: Record<Lang, T> = {
       { title: '문의 안내', items: [
         '예약센터 번호: 1544-0080',
         <>상담 시간: <span className="font-bold">09:00 ~ 18:00 (한국 지역)</span></>,
-        '본 메일은 발신전용이므로 회신되지 않습니다.',
-        <>문의사항이 있으시면 고객센터 &gt; <span className="font-extrabold text-[#D6001C] underline underline-offset-2 decoration-[#D6001C]">고객의말씀</span>을 이용해주십시오.</>,
       ]},
     ],
     ancillaryPayment: '부가 서비스',
