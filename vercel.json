@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npx vite build --config vite.app.config.ts",
+  "outputDirectory": "dist-app",
+  "framework": null
+}
