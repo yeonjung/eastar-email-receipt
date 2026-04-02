@@ -674,7 +674,7 @@ const EmailReceiptPage = () => {
                       return (
                         <div className="flex items-center gap-1 flex-shrink-0">
                           <span className={`text-sm font-bold ${color}`}>KRW</span>
-                          <span className={`text-lg font-bold ${color} tabular-nums`}>{p.fare.total.toLocaleString()}</span>
+                          <span className={`text-lg font-bold ${color} tabular-nums`}>{(p.fare.airTransport.total + p.fare.ancillary.total).toLocaleString()}</span>
                         </div>
                       );
                     })()}
