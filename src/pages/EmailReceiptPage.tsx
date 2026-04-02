@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const imgLogoEastarjet = "https://www.figma.com/api/mcp/asset/74d50cdb-d618-4fd2-a0d5-96f479452077";
+const imgLogoEastarjet = "https://www.figma.com/api/mcp/asset/4efd8786-db85-48dc-a07b-46a0dbf62d07";
 const imgLogoEastarjetGrey = "https://www.figma.com/api/mcp/asset/21f8601b-d4d7-42c3-a866-38b902d57b0d";
 
 /* ══════════════════════════════════════════════════════════
@@ -580,10 +580,14 @@ const EmailReceiptPage = () => {
 
         {/* 헤더 — 흰 배경, 하단 보더 */}
         <header className="flex justify-between items-center px-8 py-8 bg-white border-b border-[#D8DAE0]">
-          <div className="h-[34px] w-[158px] flex-shrink-0">
-            <img src={imgLogoEastarjet} alt="Eastar Jet" className="h-full w-full object-contain object-left" />
+          {/* 로고 + 서브타이틀 */}
+          <div className="flex flex-col gap-2 flex-shrink-0">
+            <div className="h-[34px] w-[158px]">
+              <img src={imgLogoEastarjet} alt="Eastar Jet" className="h-full w-full object-contain object-left" />
+            </div>
+            <p className="text-[12px] text-[#6B7280] leading-[1.3] whitespace-nowrap">{tr.docTitle}</p>
           </div>
-          <button className="border border-[#374151] rounded-[5px] px-[10px] py-[10px] text-sm font-bold text-[#001B2A] hover:bg-slate-50 whitespace-nowrap">
+          <button className="border border-[#374151] rounded-[5px] px-[10px] py-[10px] text-[14px] font-bold tracking-[-0.5px] text-[#001B2A] hover:bg-slate-50 whitespace-nowrap">
             {tr.homepageBtn}
           </button>
         </header>
