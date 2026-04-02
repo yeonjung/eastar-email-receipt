@@ -674,7 +674,7 @@ const EmailReceiptPage = () => {
                       return (
                         <div className="flex items-center gap-1 flex-shrink-0">
                           <span className={`text-sm font-bold ${color}`}>KRW</span>
-                          <span className={`text-lg font-bold ${color} tabular-nums`}>{(p.fare.airTransport.total + p.fare.ancillary.total).toLocaleString()}</span>
+                          <span className={`text-lg font-bold ${color} tabular-nums`}>{(ver === 'v2' ? p.fare.airTransport.total : p.fare.airTransport.total + p.fare.ancillary.total).toLocaleString()}</span>
                         </div>
                       );
                     })()}
@@ -690,7 +690,7 @@ const EmailReceiptPage = () => {
                           ))}
                         </div>
                       </div>
-                      {p.fare.ancillary.legs.length > 0 && (
+                      {ver !== 'v2' && p.fare.ancillary.legs.length > 0 && (
                         <div className="pt-2 border-t border-slate-100">
                           <FareRow label="부가 서비스" amount={p.fare.ancillary.total} bold t={tr} />
                           <div className="mt-1 space-y-2">
