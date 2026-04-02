@@ -529,7 +529,7 @@ const EmailReceiptPage = () => {
   const tr = translations[lang];
 
   const LANG_LABELS: Record<Lang, string> = { ko: '한국어', en: 'English', ru: 'Русский', zh: '中文' };
-  const VER_LABELS: Record<Ver, string>   = { v1: 'Ver 1', v2: 'Ver 2', v3: 'Ver 3' };
+  const VER_LABELS: Record<Ver, string>   = { v1: '부가서비스 3인포함 Ver', v2: '부가서비스 미포함 Ver', v3: 'Default' };
 
   const itTypeMap: Record<string, string> = { '가는 편': tr.outbound, '오는 편': tr.inbound };
   const pasTypeMap: Record<string, string> = { '성인': tr.adult, '소아': tr.child, '유아': tr.infant };
