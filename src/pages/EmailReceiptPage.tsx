@@ -368,7 +368,7 @@ const PAYMENT_ROWS_V1: PaymentRow[] = [
   { date: '2026-03-23 13:26:45 (GMT+9)', method: '간편결제', amount: 15000 },
 ];
 const PAYMENT_ROWS_V2: PaymentRow[] = [
-  { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 242500 },
+  { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 353500 },
 ];
 const PAYMENT_ROWS_V3: PaymentRow[] = [
   { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 118000 },
