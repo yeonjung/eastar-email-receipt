@@ -363,9 +363,8 @@ const ITINERARIES: Itinerary[] = [
 ];
 
 const PAYMENT_ROWS_V1: PaymentRow[] = [
-  { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 1162000 },
-  { date: '2026-03-23 12:26:45 (GMT+9)', method: '신용카드', amount: 15000 },
-  { date: '2026-03-23 13:26:45 (GMT+9)', method: '간편결제', amount: 15000 },
+  { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 353500 },
+  { date: '2026-03-23 12:26:45 (GMT+9)', method: '신용카드', amount: 429800 },
 ];
 const PAYMENT_ROWS_V2: PaymentRow[] = [
   { date: '2026-03-23 11:26:45 (GMT+9)', method: '신용카드', amount: 353500 },
@@ -455,7 +454,7 @@ const RESERVATIONS: Record<Ver, Reservation> = {
         },
       },
     ],
-    payment: { fare: 127000, tax: 64000, total: 1192000, currency: 'KRW', rows: PAYMENT_ROWS_V1 },
+    payment: { fare: 127000, tax: 64000, total: 783300, currency: 'KRW', rows: PAYMENT_ROWS_V1 },
   },
 
   /* ── Ver2: 성인+소아+유아 3명, 부가서비스 미포함 ── */
