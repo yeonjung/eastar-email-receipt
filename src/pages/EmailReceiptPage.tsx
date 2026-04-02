@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const imgLogoEastarjet = "https://www.figma.com/api/mcp/asset/74d50cdb-d618-4fd2-a0d5-96f479452077";
+const imgLogoEastarjetGrey = "https://www.figma.com/api/mcp/asset/21f8601b-d4d7-42c3-a866-38b902d57b0d";
 
 /* ══════════════════════════════════════════════════════════
    i18n
@@ -758,6 +759,22 @@ const EmailReceiptPage = () => {
 
         </div>
 
+        {/* ── 푸터 ── */}
+        <footer className="border-t border-[#D8DAE0] flex flex-col items-center gap-6 px-6 py-6">
+          {/* 회사 정보 + 로고 */}
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-[12px] text-[#9CA3AF] text-center leading-[1.3]">이스타항공(주) 대표이사 조중석 / 서울특별시 강서구 공항대로236 이스타항공(주)</p>
+            <p className="text-[12px] text-[#9CA3AF] text-center leading-[1.3]">사업자 등록번호 : 401-81-32460 / 통신판매업 신고번호 2008-전북군산-00073호</p>
+            <p className="text-[12px] text-[#9CA3AF] text-center leading-[1.3]">개인정보관리책임자 : 이경민 / 예약센터&nbsp;&nbsp;1544-0080 / FAX 02-2665-7470</p>
+            <p className="text-[12px] text-[#9CA3AF] text-center leading-[1.3]">COPYRIGHT (C) 2022 EASTARJET. ALL RIGHTS RESERVED.</p>
+            <img src={imgLogoEastarjetGrey} alt="Eastar Jet" className="h-[24px] w-[114px] object-contain mt-1" />
+          </div>
+          {/* 발신전용 안내 */}
+          <p className="text-[12px] text-[#9CA3AF] text-center leading-[1.3]">
+            본 메일은 발신전용이므로 회신되지 않습니다. 문의사항이 있으시면 고객센터의{' '}
+            <span className="font-bold underline underline-offset-2">고객의말씀</span>을 이용해주십시오.
+          </p>
+        </footer>
 
       </div>
     </div>
