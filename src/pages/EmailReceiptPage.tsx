@@ -81,7 +81,7 @@ const translations: Record<Lang, T> = {
       ]},
       { title: '문의 안내', items: [
         '예약센터 번호: 1544-0080',
-        <>상담 시간: <span className="font-bold">09:00 ~ 18:00 (한국 지역)</span></>,
+        '상담 시간: 09:00 ~ 18:00 (한국 지역)',
       ]},
     ],
     ancillaryPayment: '부가 서비스',
