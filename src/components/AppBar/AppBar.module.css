@@ -1,0 +1,146 @@
+/* ==========================================================================
+   AppBar — Mobile Top Bar / Bottom Tab Bar / Desktop GNB
+   Source: Figma 공통요소 가이드
+   ========================================================================== */
+
+/* ── Mobile Top Bar (56px) ──────────────────────────────────────────────── */
+.topBar {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 var(--spacing-4);
+  background: var(--color-bg-base);
+  border-bottom: 1px solid var(--color-border-default);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  font-family: var(--font-family-sans);
+  gap: var(--spacing-2);
+}
+.leading,
+.trailing { display: flex; align-items: center; gap: var(--spacing-1); min-width: 48px; }
+.trailing  { justify-content: flex-end; margin-left: auto; }
+.title     { flex: 1; text-align: center; font-size: var(--font-size-body-1); font-weight: var(--font-weight-bold); color: var(--color-text-primary); margin: 0; }
+.backBtn   {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  border: none; background: none; cursor: pointer;
+  font-size: 24px; color: var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.backBtn:hover { background: var(--color-bg-muted); }
+
+/* ── Mobile Bottom Tab Bar (50px) ───────────────────────────────────────── */
+/* Source: Figma OS/Bar/Bottom Navigation, height: ~50px */
+.bottomBar {
+  display: flex;
+  align-items: stretch;
+  height: 50px;
+  background: var(--color-bg-base);
+  border-top: 1px solid var(--color-border-default);
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: var(--z-sticky);
+}
+.navItem {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 3px;
+  border: none; background: none; cursor: pointer;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-family-sans);
+  transition: color var(--transition-fast);
+  padding: var(--spacing-1) 0;
+}
+.navItem:hover { color: var(--color-text-secondary); }
+.navActive     { color: var(--color-action-primary) !important; }
+.navIcon       { font-size: 22px; line-height: 1; }
+.navLabel      { font-size: 10px; font-weight: var(--font-weight-medium); }
+
+/* ── Desktop GNB (64px) ─────────────────────────────────────────────────── */
+/* Source: Figma 공통요소 가이드 > gnb_default / gnb_login (height: 64px) */
+.gnb {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 var(--spacing-10);
+  background: var(--color-bg-base);
+  border-bottom: 1px solid var(--color-border-default);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  font-family: var(--font-family-sans);
+  gap: var(--spacing-8);
+}
+
+/* Logo */
+.gnbLogo     { flex-shrink: 0; display: flex; align-items: center; }
+.gnbLogoText { font-size: var(--font-size-body-1); font-weight: var(--font-weight-bold); color: var(--color-brand-primary); letter-spacing: 0.08em; }
+
+/* Nav Menu */
+.gnbMenu         { display: flex; align-items: center; gap: 0; flex: 1; }
+.gnbMenuItemWrap { position: relative; }
+.gnbMenuItem     {
+  display: flex; align-items: center;
+  height: 64px;
+  padding: 0 var(--spacing-4);
+  border: none; background: none; cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+}
+.gnbMenuItem:hover  { color: var(--color-action-primary); }
+.gnbMenuActive      { color: var(--color-action-primary); border-bottom-color: var(--color-action-primary); }
+
+/* Mega Menu Dropdown */
+.gnbDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  background: var(--color-bg-base);
+  border: 1px solid var(--color-border-default);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-2) 0;
+  z-index: var(--z-dropdown);
+  animation: fadeDown 0.15s ease;
+}
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+.gnbDropdownItem {
+  display: block;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-body-2);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+.gnbDropdownItem:hover { background: var(--color-bg-subtle); color: var(--color-action-primary); }
+
+/* Auth / Actions */
+.gnbActions  { display: flex; align-items: center; gap: var(--spacing-2); flex-shrink: 0; margin-left: auto; }
+.gnbAuthBtn  {
+  height: 36px; padding: 0 var(--spacing-4);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border-default);
+  background: none; cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.gnbAuthBtn:hover { background: var(--color-bg-muted); }
+.gnbSignupBtn     { background: var(--color-action-primary); color: var(--color-text-on-primary); border-color: var(--color-action-primary); }
+.gnbSignupBtn:hover { background: var(--color-action-primary-hover); border-color: var(--color-action-primary-hover); }
+
+/* ── Shared ─────────────────────────────────────────────────────────────── */
+.transparent { background: transparent; border-color: transparent; }

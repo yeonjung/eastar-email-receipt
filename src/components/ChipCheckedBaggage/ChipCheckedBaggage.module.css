@@ -1,0 +1,151 @@
+/* ChipCheckedBaggage — 220×72 card-shaped chip for checked baggage selection */
+.chip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 220px;
+  height: 72px;
+  padding: 12px 16px;
+  background-color: var(--color-bg-base);
+  border: 1px solid #D8DAE0;
+  border-radius: var(--radius-lg); /* 12px */
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Active state */
+.active {
+  border-color: var(--color-action-primary);
+}
+
+/* ── Name row ── */
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 23px;
+  width: 100%;
+  flex-shrink: 0;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-2); /* 14px */
+  line-height: 1.6;
+  color: var(--color-primitive-darkblue-gray-900); /* #111827 */
+  white-space: nowrap;
+}
+
+/* passengerIndex (e.g. "1. ") — shrink-0, truncate if needed */
+.passengerIndex {
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* secondName / firstName 감싸는 flex 컨테이너 */
+.nameSubContainer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* secondName — truncate */
+.namePart {
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* "/" 구분자 */
+.nameSeparator {
+  flex-shrink: 0;
+}
+
+/* firstName — flex-grow + truncate */
+.namePartFlex {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── State row ── */
+.stateRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding-left: 12px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* "지금 선택 중..." or "미선택" text */
+.statusText {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body-2);
+  line-height: 1.6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statusText-selecting {
+  color: #111827;
+}
+
+.statusText-not-selected {
+  color: #9CA3AF;
+}
+
+/* Selected: "+5kg" in red */
+.selectedKg {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body-2);
+  line-height: 1.6;
+  color: var(--color-primitive-primary-500); /* #DE3349 */
+  white-space: nowrap;
+}
+
+/* Remove (×) button — chip 레벨 기준 absolute 배치
+   Figma 33-2691: right:7px, top:-1px from chip container */
+.removeBtn {
+  position: absolute;
+  top: -1px;
+  right: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #9CA3AF;
+  padding: 0;
+  line-height: 1;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+/* 선택 상태에서 이름 행 최대 너비 제한 (닫기 버튼과 겹침 방지) */
+.nameRowSelected {
+  max-width: 156px;
+}
+
+.removeBtn:hover {
+  color: #111827;
+  background-color: rgba(0, 0, 0, 0.06);
+}

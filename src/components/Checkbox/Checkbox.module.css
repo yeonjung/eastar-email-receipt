@@ -1,0 +1,22 @@
+.wrap { display: inline-flex; align-items: center; gap: var(--spacing-2); cursor: pointer; font-family: var(--font-family-sans); }
+.wrap.disabled { opacity: 0.4; cursor: not-allowed; }
+.size-md .box { width: 20px; height: 20px; font-size: 13px; }
+.size-sm .box { width: 16px; height: 16px; font-size: 10px; }
+
+.input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.box {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1.5px solid var(--color-border-default);
+  border-radius: var(--radius-xs);
+  color: transparent;
+  background: var(--color-bg-base);
+  flex-shrink: 0;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+.input:checked   + .box { background: var(--color-action-primary); border-color: var(--color-action-primary); color: #fff; }
+.indeterminate        { background: var(--color-action-primary); border-color: var(--color-action-primary); color: #fff; }
+.input:focus-visible + .box { outline: 2px solid var(--color-border-focus); outline-offset: 2px; }
+
+.label { font-size: var(--font-size-body-2); color: var(--color-text-primary); }
+.size-sm .label { font-size: var(--font-size-caption); }

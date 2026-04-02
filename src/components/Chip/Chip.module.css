@@ -1,0 +1,54 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  border: 1.5px solid var(--color-border-default);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  user-select: none;
+}
+.chip:focus-visible { outline: 2px solid var(--color-border-focus); outline-offset: 2px; }
+.chip:disabled      { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+
+/* Size */
+.size-md { height: var(--spacing-9); padding: 0 var(--spacing-3); font-size: var(--font-size-body-2); }
+.size-sm { height: var(--spacing-7); padding: 0 var(--spacing-2); font-size: var(--font-size-caption); }
+
+/* Default hover */
+.chip:not(.selected):hover { background-color: var(--color-bg-muted); }
+
+/* Selected */
+.selected {
+  background-color: var(--color-primitive-primary-15);   /* #FDF2F3 */
+  border-color: var(--color-action-primary);
+  color: var(--color-action-primary);
+}
+.selected:hover { background-color: var(--color-primitive-primary-50); } /* #F7CCD2 */
+
+/* Remove button */
+.removeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast), background-color var(--transition-fast);
+}
+.removeBtn:hover { opacity: 1; background-color: rgba(0,0,0,0.08); }
+
+.icon { display: inline-flex; align-items: center; }

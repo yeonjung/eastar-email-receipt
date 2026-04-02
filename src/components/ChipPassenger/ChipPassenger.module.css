@@ -1,0 +1,110 @@
+/* ChipPassenger — 220×72 card-shaped chip for passenger info */
+.chip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 220px;
+  height: 72px;
+  padding: 12px 16px;
+  background-color: var(--color-bg-base);
+  border: 1px solid #D8DAE0;
+  border-radius: var(--radius-lg); /* 12px */
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Active state — red border */
+.active {
+  border-color: var(--color-action-primary);
+}
+
+/* ── Name row ── */
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 23px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.passengerInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1 0 0;
+  min-width: 0;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-2); /* 14px */
+  line-height: 1.6;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.passengerIndex {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.passengerLabel {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Name/state row ── */
+.stateRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding-left: 12px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.nameText {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-2); /* 14px */
+  line-height: 1.6;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.namePart {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.namePartFlex {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* "미입력" dash placeholder */
+.emptyPlaceholder {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-body-2);
+  line-height: 1.6;
+  color: #9CA3AF;
+  white-space: nowrap;
+}

@@ -1,0 +1,19 @@
+.nav { display: flex; align-items: center; gap: var(--spacing-1); }
+.btn {
+  min-width: 36px; height: 36px; border-radius: var(--radius-sm);
+  border: none; background: none; cursor: pointer;
+  font-family: var(--font-family-sans); font-size: var(--font-size-body-2);
+  color: var(--color-text-secondary);
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.btn:hover:not(:disabled) { background: var(--color-bg-muted); color: var(--color-text-primary); }
+.btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.active { background: var(--color-action-primary) !important; color: #fff !important; font-weight: 700; border-radius: var(--radius-sm); }
+.arrow { font-size: 20px; }
+.ellipsis { min-width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--color-text-tertiary); }
+
+/* Dot */
+.dots { display: flex; gap: var(--spacing-1); align-items: center; }
+.dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--color-border-default); cursor: pointer; padding: 0; transition: background var(--transition-fast), width var(--transition-fast); }
+.dotActive { background: var(--color-action-primary); width: 20px; border-radius: 4px; }

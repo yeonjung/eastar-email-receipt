@@ -1,0 +1,72 @@
+.bar {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 11px;
+  color: #616161;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.link {
+  color: #616161;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: #212121;
+  text-decoration: underline;
+}
+
+.divider {
+  color: #bdbdbd;
+}
+
+.socialGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socialIcon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #757575;
+}
+
+.socialIcon:hover {
+  color: #212121;
+}
+
+.authGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 8px;
+  border-left: 1px solid #e0e0e0;
+}

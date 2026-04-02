@@ -1,0 +1,1 @@
+export { ModalTabBar } from './ModalTabBar';

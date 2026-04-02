@@ -1,0 +1,197 @@
+.hero {
+  background-color: #D80027;
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: stretch;
+  min-height: 360px;
+}
+
+/* Left content */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.badgeItem {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
+.badgeSep {
+  color: rgba(255,255,255,0.5);
+  font-size: 16px;
+}
+
+.headline {
+  color: white;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.3;
+  white-space: pre-line;
+  margin-bottom: 10px;
+}
+
+.subline {
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.carouselBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.5);
+  background: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.15s;
+}
+
+.carouselBtn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.carouselIndicator {
+  color: rgba(255,255,255,0.9);
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Character illustration area */
+.illustrationArea {
+  width: 440px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.characterGroup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.characterCircle {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.characterLabel {
+  color: rgba(255,255,255,0.45);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Snoopy-style placeholder figures */
+.figure {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+}
+
+.figureA {
+  width: 90px;
+  height: 90px;
+  bottom: 60px;
+  left: 30px;
+}
+
+.figureB {
+  width: 65px;
+  height: 65px;
+  bottom: 170px;
+  left: 140px;
+}
+
+.figureC {
+  width: 75px;
+  height: 75px;
+  bottom: 50px;
+  right: 50px;
+}
+
+/* Right promo panel */
+.promoPanel {
+  width: 190px;
+  background: rgba(0,0,0,0.20);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 14px;
+  gap: 6px;
+  flex-shrink: 0;
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+.promoIcon {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.promoTitle {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.promoSub {
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.5;
+}

@@ -1,0 +1,155 @@
+.footer {
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+}
+
+.topBar {
+  background: white;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.topInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footerLogo {
+  font-size: 20px;
+  font-weight: 900;
+  color: #D80027;
+  letter-spacing: 0.05em;
+}
+
+.eAgency {
+  font-size: 11px;
+  color: #9e9e9e;
+  border: 1px solid #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.appButtons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.appBtn {
+  background: #212121;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s;
+}
+
+.appBtn:hover {
+  background: #424242;
+}
+
+.phoneArea {
+  text-align: right;
+}
+
+.phoneLabel {
+  font-size: 11px;
+  color: #9e9e9e;
+  margin-bottom: 4px;
+}
+
+.phoneNumbers {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.phone {
+  font-size: 20px;
+  font-weight: 800;
+  color: #212121;
+}
+
+.phoneSub {
+  font-size: 10px;
+  color: #9e9e9e;
+  margin-top: 2px;
+}
+
+/* Link columns */
+.linksBar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.colTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #424242;
+  margin-bottom: 12px;
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.colLink {
+  font-size: 12px;
+  color: #757575;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.colLink:hover {
+  color: #D80027;
+}
+
+/* Bottom bar */
+.bottomBar {
+  border-top: 1px solid #e0e0e0;
+  padding: 16px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.isms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ismsBox {
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #616161;
+}
+
+.copyright {
+  font-size: 11px;
+  color: #9e9e9e;
+}

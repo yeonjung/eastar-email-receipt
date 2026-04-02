@@ -1,0 +1,1 @@
+export { ChipPassenger } from './ChipPassenger';

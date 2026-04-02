@@ -1,0 +1,52 @@
+.overlay {
+  position: fixed; inset: 0;
+  background: var(--color-bg-overlay);
+  display: flex; align-items: center; justify-content: center;
+  z-index: var(--z-modal);
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+
+.modal {
+  background: var(--color-bg-base);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  position: relative;
+  box-shadow: var(--shadow-2xl);
+  animation: scaleIn 0.2s ease;
+  max-height: 90vh; overflow-y: auto;
+}
+@keyframes scaleIn { from { transform: scale(0.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+
+/* Types */
+.type-default, .type-alert, .type-confirm { width: 100%; max-width: 400px; }
+.type-bottom-sheet {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+  max-width: none; width: 100%;
+  padding-top: var(--spacing-5);
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform: translateY(100%) } to { transform: translateY(0) } }
+
+.closeBtn {
+  position: absolute; top: var(--spacing-4); right: var(--spacing-4);
+  background: none; border: none; cursor: pointer;
+  color: var(--color-text-tertiary); font-size: 18px;
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm); transition: background var(--transition-fast);
+}
+.closeBtn:hover { background: var(--color-bg-muted); color: var(--color-text-primary); }
+
+.title { font-size: var(--font-size-heading-4); font-weight: var(--font-weight-bold); color: var(--color-text-primary); font-family: var(--font-family-sans); margin-bottom: var(--spacing-2); }
+.description { font-size: var(--font-size-body-2); color: var(--color-text-secondary); font-family: var(--font-family-sans); line-height: var(--line-height-normal); }
+.body { margin-top: var(--spacing-4); }
+
+.actions { display: flex; gap: var(--spacing-2); margin-top: var(--spacing-6); }
+.btn { flex: 1; height: 48px; border-radius: var(--radius-sm); border: none; cursor: pointer; font-family: var(--font-family-sans); font-weight: var(--font-weight-medium); font-size: var(--font-size-body-2); transition: background var(--transition-fast); }
+.primary   { background: var(--color-action-primary); color: #fff; }
+.primary:hover { background: var(--color-action-primary-hover); }
+.secondary { background: var(--color-bg-muted); color: var(--color-text-primary); }
+.secondary:hover { background: var(--color-primitive-gray200); }
+
+.sheetHandle { display: block; width: 36px; height: 4px; border-radius: 2px; background: var(--color-border-default); border: none; margin: 0 auto var(--spacing-4); cursor: pointer; }

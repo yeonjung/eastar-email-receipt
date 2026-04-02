@@ -1,0 +1,158 @@
+/* GraphBaggageTotal — B안 위탁수화물 합계 그래프 컴포넌트
+   Figma: node 89-5886 */
+
+/* ── Wrapper ── */
+.wrapDesktop {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #D8DAE0;
+  border-radius: 20px;
+  padding: 24px 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color var(--transition-fast);
+}
+
+/* Border lightens when kg is selected (Figma: border-[#f3f4f6]) */
+.wrapSelected {
+  border-color: #F3F4F6;
+}
+
+.wrapPhone {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 16px 8px;
+  box-sizing: border-box;
+}
+
+/* ── Header: "총 무게 Xkg" ── */
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  padding-bottom: 4px;
+}
+
+.wrapPhone .header {
+  padding-bottom: 0;
+}
+
+.headerLabel {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: 20px;
+  line-height: 1.3;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.headerLabelPhone {
+  font-size: 16px;
+}
+
+.headerValue {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: 20px;
+  line-height: 1.3;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.headerValuePhone {
+  font-size: 16px;
+}
+
+.headerUnit {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.headerUnitPhone {
+  font-size: 14px;
+}
+
+/* ── Bar track ── */
+.barTrack {
+  position: relative;
+  height: 32px;
+  border-radius: 20px;
+  background-color: #E5E7EB; /* gray when empty */
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+}
+
+/* When kg selected: track stays gray (no bg change) */
+.barTrackSelected {
+  background-color: #E5E7EB;
+}
+
+/* Empty state: full-width centered gray label */
+.barEmpty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.barEmptyLabel {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+  line-height: 1.3;
+  color: #374151; /* Darkblue_gray/700 */
+  white-space: nowrap;
+}
+
+/* Left portion: transparent — base kg label on gray track */
+.barLeft {
+  height: 100%;
+  background-color: transparent;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: width 0.3s ease;
+}
+
+.barLeftLabel {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+  line-height: 1.3;
+  color: #374151; /* Darkblue_gray/700 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right portion: Primary/600 red pill — added kg */
+.barRight {
+  height: 100%;
+  background-color: #D6001C; /* Primary/600 */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: width 0.3s ease;
+}
+
+.barRightLabel {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: 14px;
+  line-height: 1.3;
+  color: #fff; /* White */
+  white-space: nowrap;
+}

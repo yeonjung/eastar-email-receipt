@@ -1,0 +1,1 @@
+export { ChipCheckedBaggage } from './ChipCheckedBaggage';

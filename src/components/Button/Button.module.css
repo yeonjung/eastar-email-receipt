@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Button Component Styles
+   Source: Figma > Button
+   ========================================================================== */
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    opacity var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ── Size ─────────────────────────────────────────────────────────────────── */
+/* Figma size guide: "size (height)" */
+
+.size-2xlarge {
+  height: var(--spacing-14); /* 56px */
+  padding: 0 var(--spacing-7);
+  font-size: var(--font-size-body-1);
+}
+
+.size-xlarge {
+  height: var(--spacing-13); /* 52px */
+  padding: 0 var(--spacing-6);
+  font-size: var(--font-size-body-1);
+}
+
+.size-large {
+  height: var(--spacing-12); /* 48px */
+  padding: 0 var(--spacing-6);
+  font-size: var(--font-size-body-1);
+}
+
+.size-medium {
+  height: var(--spacing-11); /* 44px */
+  padding: 0 var(--spacing-5);
+  font-size: var(--font-size-body-2);
+}
+
+.size-small {
+  height: var(--spacing-10); /* 40px */
+  padding: 0 var(--spacing-4);
+  font-size: var(--font-size-body-2);
+}
+
+.size-xsmall {
+  height: var(--spacing-9); /* 36px */
+  padding: 0 var(--spacing-3);
+  font-size: var(--font-size-body-2);
+}
+
+.size-2xsmall {
+  height: var(--spacing-8); /* 32px */
+  padding: 0 var(--spacing-3);
+  font-size: var(--font-size-caption);
+}
+
+/* ── Width ────────────────────────────────────────────────────────────────── */
+.width-fill {
+  width: 100%;
+}
+
+.width-hug {
+  width: fit-content;
+}
+
+/* width-fixed: inline style handles the specific px value */
+
+/* ── Subtype: default ─────────────────────────────────────────────────────── */
+
+/* fill-primary */
+.subtype-default.variant-fill-primary {
+  background-color: var(--color-action-primary);
+  color: var(--color-text-on-primary);
+}
+.subtype-default.variant-fill-primary:hover:not(:disabled) {
+  background-color: var(--color-action-primary-hover);
+}
+.subtype-default.variant-fill-primary:active:not(:disabled) {
+  background-color: var(--color-action-primary-pressed);
+}
+
+/* fill-secondary */
+.subtype-default.variant-fill-secondary {
+  background-color: var(--color-action-secondary);
+  color: var(--color-text-on-primary);
+}
+.subtype-default.variant-fill-secondary:hover:not(:disabled) {
+  background-color: var(--color-action-secondary-hover);
+}
+.subtype-default.variant-fill-secondary:active:not(:disabled) {
+  background-color: var(--color-action-secondary-pressed);
+}
+
+/* fill-gray */
+.subtype-default.variant-fill-gray {
+  background-color: var(--color-bg-muted);
+  color: var(--color-text-primary);
+}
+.subtype-default.variant-fill-gray:hover:not(:disabled) {
+  background-color: var(--color-primitive-gray200);
+}
+.subtype-default.variant-fill-gray:active:not(:disabled) {
+  background-color: var(--color-primitive-gray300);
+}
+
+/* outline-primary */
+.subtype-default.variant-outline-primary {
+  background-color: transparent;
+  color: var(--color-action-primary);
+  border: 1.5px solid var(--color-action-primary);
+}
+.subtype-default.variant-outline-primary:hover:not(:disabled) {
+  background-color: var(--color-primitive-orange50);
+}
+.subtype-default.variant-outline-primary:active:not(:disabled) {
+  background-color: var(--color-primitive-orange100);
+}
+
+/* outline-secondary */
+.subtype-default.variant-outline-secondary {
+  background-color: transparent;
+  color: var(--color-action-secondary);
+  border: 1.5px solid var(--color-action-secondary);
+}
+.subtype-default.variant-outline-secondary:hover:not(:disabled) {
+  background-color: var(--color-bg-subtle);
+}
+.subtype-default.variant-outline-secondary:active:not(:disabled) {
+  background-color: var(--color-bg-muted);
+}
+
+/* ── Subtype: text ────────────────────────────────────────────────────────── */
+.subtype-text {
+  background-color: transparent;
+  border-radius: var(--radius-xs);
+  padding: 0 var(--spacing-1);
+}
+
+.subtype-text.variant-primary {
+  color: var(--color-action-primary);
+}
+.subtype-text.variant-primary:hover:not(:disabled) {
+  color: var(--color-action-primary-hover);
+  text-decoration: underline;
+}
+
+.subtype-text.variant-secondary {
+  color: var(--color-text-secondary);
+}
+.subtype-text.variant-secondary:hover:not(:disabled) {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
+/* ── Subtype: round ───────────────────────────────────────────────────────── */
+.subtype-round {
+  border-radius: var(--radius-full);
+}
+
+.subtype-round.variant-primary {
+  background-color: var(--color-action-primary);
+  color: var(--color-text-on-primary);
+}
+.subtype-round.variant-primary:hover:not(:disabled) {
+  background-color: var(--color-action-primary-hover);
+}
+.subtype-round.variant-primary:active:not(:disabled) {
+  background-color: var(--color-action-primary-pressed);
+}
+
+.subtype-round.variant-secondary {
+  background-color: var(--color-action-secondary);
+  color: var(--color-text-on-primary);
+}
+.subtype-round.variant-secondary:hover:not(:disabled) {
+  background-color: var(--color-action-secondary-hover);
+}
+
+.subtype-round.variant-outline {
+  background-color: transparent;
+  color: var(--color-action-primary);
+  border: 1.5px solid var(--color-action-primary);
+}
+.subtype-round.variant-outline:hover:not(:disabled) {
+  background-color: var(--color-primitive-orange50);
+}
+
+/* ── Subtype: icon ────────────────────────────────────────────────────────── */
+.subtype-icon {
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+
+.subtype-icon.size-large  { width: var(--spacing-12); } /* 48px */
+.subtype-icon.size-medium { width: var(--spacing-10); } /* 40px */
+.subtype-icon.size-small  { width: var(--spacing-9);  } /* 36px */
+
+.subtype-icon.variant-none {
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+.subtype-icon.variant-none:hover:not(:disabled) {
+  background-color: var(--color-bg-muted);
+}
+
+.subtype-icon.variant-fill {
+  background-color: var(--color-action-primary);
+  color: var(--color-text-on-primary);
+}
+.subtype-icon.variant-fill:hover:not(:disabled) {
+  background-color: var(--color-action-primary-hover);
+}
+
+.subtype-icon.variant-outline {
+  background-color: transparent;
+  color: var(--color-action-primary);
+  border: 1.5px solid var(--color-action-primary);
+}
+
+/* ── Disabled state ───────────────────────────────────────────────────────── */
+.button:disabled,
+.button[aria-disabled='true'] {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ── Loading state ────────────────────────────────────────────────────────── */
+.loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Icon slots ───────────────────────────────────────────────────────────── */
+.startIcon,
+.endIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}

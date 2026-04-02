@@ -1,0 +1,1 @@
+export { ChipSelectBaggageKg } from './ChipSelectBaggageKg';

@@ -1,0 +1,62 @@
+.section {
+  background: white;
+  padding: 0 0 40px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.headingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #757575;
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.15s;
+  font-weight: 500;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.socialBtn:hover {
+  color: #212121;
+}
+
+.socialIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ig { background: #e1306c; color: white; }
+.fb { background: #1877f2; color: white; }
+.yt { background: #ff0000; color: white; }
