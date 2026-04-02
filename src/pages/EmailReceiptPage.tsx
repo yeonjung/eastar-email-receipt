@@ -726,7 +726,7 @@ const EmailReceiptPage = () => {
               </div>
               {/* 행 */}
               {reservation.payment.rows.map((row, i) => (
-                <div key={i} className="flex items-center justify-between px-4 py-3 border-t border-[#D8DAE0] text-[#1F2937]">
+                <div key={i} className={`flex items-center justify-between px-4 py-3 text-[#1F2937] ${i !== 1 && i !== 2 ? 'border-t border-[#D8DAE0]' : ''}`}>
                   <span className="flex-[1.2] break-all pr-2">{row.date}</span>
                   <span className="flex-1 text-center">{row.method}</span>
                   <span className="flex-1 text-right tabular-nums">{row.amount.toLocaleString()}</span>
