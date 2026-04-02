@@ -458,7 +458,7 @@ const RESERVATIONS: Record<Ver, Reservation> = {
     payment: { fare: 127000, tax: 64000, total: 1192000, currency: 'KRW', rows: PAYMENT_ROWS_V1 },
   },
 
-  /* ── Ver2: 성인 1명 + 부가서비스 있음 ── */
+  /* ── Ver2: 성인+소아+유아 3명, 부가서비스 미포함 ── */
   v2: {
     pnr: 'ABC123D', bookingDate: '2026-03-23', bookingNo: 'WD9TQX', status: '확약',
     itineraries: ITINERARIES,
@@ -472,29 +472,37 @@ const RESERVATIONS: Record<Ver, Reservation> = {
             { label: '유류할증료', amount: 32000 },
             { label: '공항시설이용료', amount: 28000 },
           ]},
-          ancillary: { total: 124500, legs: [
-            { direction: '가는편', total: 71500, items: [
-              { label: '사전좌석', detail: '6B', amount: 15000 },
-              { label: '사전구매 위탁수하물', detail: '15kg', amount: 45000 },
-              { label: '위탁수화물 추가 제공', detail: '5kg', amount: null },
-              { label: '기내식', detail: '함박스테이크와 볶음밥', amount: null },
-              { label: '반려동물 동반 서비스', detail: '16A', amount: null },
-              { label: '여행자 보험', detail: '기본형', amount: 11500 },
-            ]},
-            { direction: '오는편', total: 53000, items: [
-              { label: '부가서비스 세트', detail: '풀세트', amount: null },
-              { label: '사전좌석', detail: '6B', amount: 15000 },
-              { label: '사전구매 위탁수하물', detail: '5kg', amount: 38000 },
-              { label: '위탁수화물 추가 제공', detail: '5kg', amount: null },
-              { label: '기내식', detail: '함박스테이크와 볶음밥', amount: null },
-              { label: '반려동물 동반 서비스', detail: '16A', amount: null },
-            ]},
+          ancillary: { total: 0, legs: [] },
+          total: 118000,
+        },
+      },
+      {
+        name: 'HONG / GILAH', seat: '6A', type: '소아', ticketNo: '180-1234567891',
+        fare: {
+          airTransport: { total: 146000, items: [
+            { label: '항공 운임', amount: 78000 },
+            { label: '할인 내역', amount: -20000, isDiscount: true },
+            { label: '유류할증료', amount: 32000 },
+            { label: '공항시설이용료', amount: 28000 },
           ]},
-          total: 242500,
+          ancillary: { total: 0, legs: [] },
+          total: 146000,
+        },
+      },
+      {
+        name: 'HONG / GILAHH', seat: '-', type: '유아', ticketNo: '180-1234567892',
+        fare: {
+          airTransport: { total: 89500, items: [
+            { label: '항공 운임', amount: 60000 },
+            { label: '유류할증료', amount: null },
+            { label: '공항시설이용료', amount: 29500 },
+          ]},
+          ancillary: { total: 0, legs: [] },
+          total: 89500,
         },
       },
     ],
-    payment: { fare: 78000, tax: 40000, ancillary: 124500, total: 242500, currency: 'KRW', rows: PAYMENT_ROWS_V2 },
+    payment: { fare: 78000, tax: 40000, total: 353500, currency: 'KRW', rows: PAYMENT_ROWS_V2 },
   },
 
   /* ── Ver3: 성인 1명 + 부가서비스 없음 (섹션 자동 제거 확인용) ── */
