@@ -588,7 +588,7 @@ const EmailReceiptPage = () => {
 
       <div
         className="mx-auto max-w-[800px] bg-white shadow-2xl overflow-hidden rounded-none md:rounded-3xl print:shadow-none print:rounded-none"
-        style={{ fontFamily: "'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif" }}
+        style={{ fontFamily: "'Pretendard', 'Nanum Gothic', '나눔고딕', 'Noto Sans KR', 'Noto Sans CJK KR', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', -apple-system, BlinkMacSystemFont, sans-serif" }}
       >
 
         {/* 헤더 — 흰 배경, 하단 보더 */}
