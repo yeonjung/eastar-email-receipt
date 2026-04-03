@@ -586,7 +586,10 @@ const EmailReceiptPage = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[800px] bg-white shadow-2xl overflow-hidden rounded-none md:rounded-3xl print:shadow-none print:rounded-none">
+      <div
+        className="mx-auto max-w-[800px] bg-white shadow-2xl overflow-hidden rounded-none md:rounded-3xl print:shadow-none print:rounded-none"
+        style={{ fontFamily: "'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif" }}
+      >
 
         {/* 헤더 — 흰 배경, 하단 보더 */}
         <header className="flex justify-between items-center px-8 py-8 bg-white border-b border-[#D8DAE0]">
