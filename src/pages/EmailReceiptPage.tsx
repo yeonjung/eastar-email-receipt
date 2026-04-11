@@ -618,11 +618,11 @@ const EmailReceiptPage = () => {
           {/* 예약번호 + 예매날짜 행 */}
           <div className="flex justify-end items-center gap-4 flex-wrap">
             <div className="flex items-center gap-2">
-              <span className="text-[16px] font-bold text-[#111827] leading-[1.3] tracking-[0.16px]">{tr.bookingNo}</span>
+              <span className="text-[16px] font-bold text-[#374151] leading-[1.3] tracking-[0.16px]">{tr.bookingNo}</span>
               <span className="text-[16px] font-bold text-[#D6001C] leading-[1.3] tracking-[0.16px]">{reservation.bookingNo}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[16px] font-bold text-[#111827] leading-[1.3] tracking-[0.16px]">{tr.bookingDate}</span>
+              <span className="text-[16px] font-bold text-[#374151] leading-[1.3] tracking-[0.16px]">{tr.bookingDate}</span>
               <span className="text-[16px] font-bold text-[#374151] leading-[1.3] tracking-[0.16px]">{reservation.bookingDate}</span>
             </div>
           </div>
@@ -641,24 +641,24 @@ const EmailReceiptPage = () => {
                       <span className="text-[14px] font-medium leading-none tracking-[-0.5px] px-2 py-1 rounded-full bg-[#FDF2F3] text-[#D6001C] border border-[#D6001C] whitespace-nowrap">
                         {itTypeMap[it.type] ?? it.type}
                       </span>
-                      <span className="flex items-center gap-1 text-[16px] font-bold leading-[1.3] tracking-[0.16px] text-[#1F2937]">
+                      <span className="flex items-center gap-1 text-[16px] font-bold leading-[1.3] tracking-[0.16px] text-[#374151]">
                         <span>{tr.flightLabel}</span>
                         <span className="text-[#D6001C]">{it.flightNo}</span>
                       </span>
                     </div>
                     {/* 루트 + 날짜/시간 */}
                     <div className="flex flex-col gap-2">
-                      <p className="text-[16px] font-bold text-[#111827] leading-[1.3] tracking-[0.16px] break-words">
+                      <p className="text-[16px] font-bold text-[#374151] leading-[1.3] tracking-[0.16px] break-words">
                         {depCity}({it.departure.code}) → {arrCity}({it.arrival.code})
                       </p>
-                      <div className="flex items-center gap-1 text-[16px] font-bold text-[#1F2937] leading-[1.3] tracking-[0.16px] flex-wrap">
+                      <div className="flex items-center gap-1 text-[16px] font-bold text-[#374151] leading-[1.3] tracking-[0.16px] flex-wrap">
                         <span>{formatDate(it.departure.date, lang)}</span>
                         <span className="tabular-nums">{it.departure.time} - {it.arrival.time}</span>
                       </div>
                     </div>
                     {/* 운임 / 수하물 정보 */}
                     {it.fareType && (
-                      <div className="flex items-center gap-1 text-[14px] text-[#1F2937] leading-[1.3] flex-wrap">
+                      <div className="flex items-center gap-1 text-[14px] text-[#6B7280] leading-[1.3] flex-wrap">
                         <span>{it.fareType === 'special' ? tr.fareTypeSpecial : tr.fareTypeRegular}</span>
                         <span>/</span>
                         <span>{tr.baggageBase}: {it.baggageKg === null ? tr.baggageNotIncluded : `${it.baggageKg}kg`}</span>
