@@ -323,10 +323,17 @@ const FareRow = ({
   };
   const displayLabel = labelMap[label] ?? label;
   const amountText   = amount === null ? '-' : amount.toLocaleString();
-  const pl           = indent === 1 ? 'pl-3' : indent === 2 ? 'pl-6' : '';
+  // Figma spacing: section header pt-[16px] pb-[8px], sub-item py-[8px] pl-[8px], deep-item py-[4px] pl-[16px]
+  const rowClass = bold
+    ? 'pt-4 pb-2'
+    : indent === 1
+      ? 'py-2 pl-2'
+      : indent === 2
+        ? 'py-1 pl-4'
+        : 'py-2';
 
   return (
-    <div className={`flex justify-between items-baseline gap-2 py-0.5 ${pl}`}>
+    <div className={`flex justify-between items-baseline gap-2 ${rowClass}`}>
       {/* label + detail — allow wrapping, no truncate */}
       <div className="flex items-baseline gap-1 min-w-0 flex-1 flex-wrap">
         {isDiscount && <span className="text-[#6B7280] text-xs flex-shrink-0">•</span>}
@@ -594,7 +601,7 @@ const EmailReceiptPage = () => {
         {/* 헤더 — 흰 배경, 하단 보더 */}
         <header className="flex justify-between items-center px-8 py-8 bg-white border-b border-[#D8DAE0]">
           {/* 로고 + 서브타이틀 */}
-          <div className="flex flex-col gap-2 flex-shrink-0">
+          <div className="flex flex-col gap-3 flex-shrink-0">
             <div className="h-[34px] w-[158px]">
               <img src={imgLogoEastarjet} alt="Eastar Jet" className="h-full w-full object-contain object-left" />
             </div>
@@ -623,12 +630,12 @@ const EmailReceiptPage = () => {
           {/* 여정정보 */}
           <section className="flex flex-col gap-4">
             <h2 className="text-[18px] font-extrabold text-[#111827] leading-[1.3]">{tr.itinerarySection}</h2>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {reservation.itineraries.map(it => {
                 const depCity = tr.cities[it.departure.code] ?? it.departure.city;
                 const arrCity = tr.cities[it.arrival.code] ?? it.arrival.city;
                 return (
-                  <div key={it.id} className="bg-[#F9FAFB] px-6 py-4 rounded-xl border border-[#D8DAE0] flex flex-col gap-3">
+                  <div key={it.id} className="bg-[#F3F4F6] px-6 py-4 rounded-xl border border-[#D8DAE0] flex flex-col gap-3">
                     {/* 배지(좌) + 편명(우) */}
                     <div className="flex items-center justify-between">
                       <span className="text-[14px] font-medium leading-none tracking-[-0.5px] px-2 py-1 rounded-full bg-[#FDF2F3] text-[#D6001C] border border-[#D6001C] whitespace-nowrap">
@@ -663,7 +670,7 @@ const EmailReceiptPage = () => {
             </div>
             {/* 스케줄 안내 */}
             <div className="flex items-start gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#374151] flex-shrink-0 mt-[5px]" />
+              <span className="w-[3px] h-[3px] rounded-full bg-[#374151] flex-shrink-0 mt-[7px]" />
               <p className="text-[14px] text-[#374151] leading-[1.3] break-words">{tr.scheduleNote}</p>
             </div>
           </section>
@@ -671,16 +678,16 @@ const EmailReceiptPage = () => {
           {/* 운임정보 */}
           <section className="flex flex-col gap-2">
             <h2 className="text-[18px] font-extrabold text-[#111827] leading-[1.3]">{tr.fareSection}</h2>
-            <div className="space-y-2">
+            <div className="space-y-4">
               {reservation.passengers.map((p, i) => (
                 <div key={i} className="rounded-xl border border-[#D8DAE0] bg-white overflow-hidden">
                   {/* 승객 헤더 */}
-                  <div className="flex justify-between items-center px-4 py-3 bg-[#F9FAFB] border-b border-[#D8DAE0] gap-3">
-                    <div className="min-w-0 flex flex-col gap-1 flex-1 pr-2">
+                  <div className="flex justify-between items-center px-4 py-3 bg-[#F3F4F6] border-b border-[#D8DAE0] gap-3">
+                    <div className="min-w-0 flex flex-col gap-2 flex-1 pr-2">
                       <span className="text-[12px] font-bold leading-[1.5] px-2 py-0.5 rounded bg-[#D1D5DB] text-[#374151] self-start">
                         {pasTypeMap[p.type] ?? p.type}
                       </span>
-                      <p className="text-[16px] font-bold text-[#001B2A] leading-[1.3] tracking-[0.16px] break-all">{p.name}</p>
+                      <p className="text-[16px] font-bold text-[#001B2A] leading-[1.3] tracking-[0.16px] break-words">{p.name}</p>
                     </div>
                     {p.fare && (() => {
                       const color = 'text-[#D6001C]';
@@ -694,35 +701,30 @@ const EmailReceiptPage = () => {
                   </div>
                   {/* 운임 상세 */}
                   {p.fare && (
-                    <div className="px-4 py-3 space-y-3">
+                    <div className="px-4">
                       <div>
                         <FareRow label="항공 운송료" amount={p.fare.airTransport.total} bold t={tr} />
-                        <div className="mt-1 space-y-0.5">
-                          {p.fare.airTransport.items.map((item, j) => (
-                            <FareRow key={j} label={item.label} amount={item.amount} isDiscount={item.isDiscount} indent={1} t={tr} />
-                          ))}
-                        </div>
+                        {p.fare.airTransport.items.map((item, j) => (
+                          <FareRow key={j} label={item.label} amount={item.amount} isDiscount={item.isDiscount} indent={1} t={tr} />
+                        ))}
                       </div>
                       {ver !== 'v2' && p.fare.ancillary.legs.length > 0 && (
-                        <div className="pt-2 border-t border-slate-100">
+                        <div className="border-t border-[#E5E7EB]">
                           <FareRow label="부가 서비스" amount={p.fare.ancillary.total} bold t={tr} />
-                          <div className="mt-1 space-y-2">
-                            {p.fare.ancillary.legs.map((leg, j) => (
-                              <div key={j}>
-                                <div className="flex justify-between items-baseline gap-2 py-0.5 pl-3">
-                                  <span className="text-[14px] font-extrabold text-[#1F2937] leading-none">{dirMap[leg.direction] ?? leg.direction}</span>
-                                  <span className="text-[14px] font-extrabold text-[#1F2937] tabular-nums leading-none flex-shrink-0">{leg.total.toLocaleString()}</span>
-                                </div>
-                                <div className="space-y-0.5">
-                                  {leg.items.map((item, k) => (
-                                    <FareRow key={k} label={item.label} detail={item.detail} amount={item.amount} indent={2} t={tr} />
-                                  ))}
-                                </div>
+                          {p.fare.ancillary.legs.map((leg, j) => (
+                            <div key={j}>
+                              <div className="flex justify-between items-baseline gap-2 py-2 pl-2">
+                                <span className="text-[14px] font-extrabold text-[#1F2937] leading-none">{dirMap[leg.direction] ?? leg.direction}</span>
+                                <span className="text-[14px] font-extrabold text-[#1F2937] tabular-nums leading-none flex-shrink-0">{leg.total.toLocaleString()}</span>
                               </div>
-                            ))}
-                          </div>
+                              {leg.items.map((item, k) => (
+                                <FareRow key={k} label={item.label} detail={item.detail} amount={item.amount} indent={2} t={tr} />
+                              ))}
+                            </div>
+                          ))}
                         </div>
                       )}
+                      <div className="pb-4" />
                     </div>
                   )}
                 </div>
@@ -742,7 +744,7 @@ const EmailReceiptPage = () => {
               </div>
               {/* 행 */}
               {reservation.payment.rows.map((row, i) => (
-                <div key={i} className={`flex items-center justify-between px-4 py-3 text-[#1F2937] ${i !== 1 && i !== 2 ? 'border-t border-[#D8DAE0]' : ''}`}>
+                <div key={i} className="flex items-center justify-between px-4 py-3 text-[#1F2937] border-t border-[#D8DAE0]">
                   <span className="flex-[1.2] break-all pr-2">{row.date}</span>
                   <span className="flex-1 text-center">{row.method}</span>
                   <span className="flex-1 text-right tabular-nums">{row.amount.toLocaleString()}</span>
@@ -761,7 +763,7 @@ const EmailReceiptPage = () => {
                   <ul className="space-y-1">
                     {sec.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-[14px] text-[#374151] leading-[1.3]">
-                        <span className="mt-[5px] w-[3px] h-[3px] rounded-full bg-[#1F2937] flex-shrink-0" />
+                        <span className="mt-[7px] w-[3px] h-[3px] rounded-full bg-[#374151] flex-shrink-0" />
                         <span className="break-words min-w-0">{item}</span>
                       </li>
                     ))}
@@ -774,7 +776,7 @@ const EmailReceiptPage = () => {
         </div>
 
         {/* ── 푸터 ── */}
-        <footer className="border-t border-[#D8DAE0] flex flex-col items-center gap-6 px-6 py-6">
+        <footer className="bg-[#F3F4F6] border-t border-[#D8DAE0] flex flex-col items-center gap-6 px-6 py-6">
           {/* 회사 정보 + 로고 */}
           <div className="flex flex-col items-center gap-1">
             <p className="text-[12px] text-[#6B7280] text-center leading-[1.3]">이스타항공(주) 대표이사 조중석 / 서울특별시 강서구 공항대로236 이스타항공(주)</p>
