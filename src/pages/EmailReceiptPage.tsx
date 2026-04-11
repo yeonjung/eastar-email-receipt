@@ -337,7 +337,7 @@ const FareRow = ({
       {/* label + detail — allow wrapping, no truncate */}
       <div className="flex items-baseline gap-1 min-w-0 flex-1 flex-wrap">
         {isDiscount && <span className="text-[#6B7280] text-xs flex-shrink-0">•</span>}
-        <span className={`leading-[1.3] break-words ${bold ? 'text-[16px] font-bold text-[#001B2A] tracking-[0.16px]' : 'text-[14px] text-[#6B7280]'}`}>
+        <span className={`leading-[1.3] break-words ${bold ? 'text-[16px] font-bold text-[#374151] tracking-[0.16px]' : 'text-[14px] text-[#6B7280]'}`}>
           {displayLabel}
         </span>
         {detail && (
@@ -345,7 +345,7 @@ const FareRow = ({
         )}
       </div>
       {/* amount — never wraps */}
-      <span className={`flex-shrink-0 tabular-nums ${bold ? 'text-[14px] font-extrabold text-[#001B2A] leading-none' : 'text-[14px] text-[#374151]'} ${amount !== null && amount < 0 ? 'text-[#D6001C]' : ''}`}>
+      <span className={`flex-shrink-0 tabular-nums ${bold ? 'text-[14px] font-extrabold text-[#374151] leading-none' : 'text-[14px] text-[#374151]'} ${amount !== null && amount < 0 ? 'text-[#D6001C]' : ''}`}>
         {amountText}
       </span>
     </div>
@@ -759,7 +759,7 @@ const EmailReceiptPage = () => {
             <div className="space-y-6">
               {tr.noticeSections.map((sec) => (
                 <div key={sec.title}>
-                  <p className="text-[16px] font-bold text-[#1F2937] leading-[1.3] tracking-[0.16px] mb-2">{sec.title}</p>
+                  <p className="text-[16px] font-bold text-[#374151] leading-[1.3] tracking-[0.16px] mb-2">{sec.title}</p>
                   <ul className="space-y-1">
                     {sec.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-[14px] text-[#374151] leading-[1.3]">
