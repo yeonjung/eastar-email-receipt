@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const imgLogoEastarjet = "https://www.figma.com/api/mcp/asset/4efd8786-db85-48dc-a07b-46a0dbf62d07";
-const imgLogoEastarjetGrey = "https://www.figma.com/api/mcp/asset/100b91ec-1f76-4ac4-92f2-9fb3165d72dc";
+const imgLogoEastarjet = "https://www.figma.com/api/mcp/asset/3884c8cc-fda0-4df2-9972-58c7eec5a349";
+const imgLogoEastarjetGrey = "https://www.figma.com/api/mcp/asset/8b73cf9b-c631-405e-a3aa-178f4742c665";
 
 /* ══════════════════════════════════════════════════════════
    i18n
@@ -781,7 +781,7 @@ const EmailReceiptPage = () => {
             <p className="text-[12px] text-[#6B7280] text-center leading-[1.3]">사업자 등록번호 : 401-81-32460 / 통신판매업 신고번호 2008-전북군산-00073호</p>
             <p className="text-[12px] text-[#6B7280] text-center leading-[1.3]">개인정보관리책임자 : 이경민 / 예약센터&nbsp;&nbsp;1544-0080 / FAX 02-2665-7470</p>
             <p className="text-[12px] text-[#6B7280] text-center leading-[1.3]">COPYRIGHT (C) 2022 EASTARJET. ALL RIGHTS RESERVED.</p>
-            <img src={imgLogoEastarjetGrey} alt="Eastar Jet" className="h-[24px] w-[114px] object-contain mt-1" />
+            <img src={imgLogoEastarjetGrey} alt="Eastar Jet" className="h-[24px] w-[114px] object-contain mt-1 opacity-60" />
           </div>
           {/* 발신전용 안내 */}
           <p className="text-[12px] text-[#6B7280] text-center leading-[1.3]">
