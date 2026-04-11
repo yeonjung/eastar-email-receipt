@@ -329,16 +329,16 @@ const FareRow = ({
     <div className={`flex justify-between items-baseline gap-2 py-0.5 ${pl}`}>
       {/* label + detail — allow wrapping, no truncate */}
       <div className="flex items-baseline gap-1 min-w-0 flex-1 flex-wrap">
-        {isDiscount && <span className="text-slate-400 text-xs flex-shrink-0">•</span>}
-        <span className={`text-xs leading-5 break-words ${bold ? 'font-bold text-slate-800' : 'text-slate-500'}`}>
+        {isDiscount && <span className="text-[#6B7280] text-xs flex-shrink-0">•</span>}
+        <span className={`leading-[1.3] break-words ${bold ? 'text-[16px] font-bold text-[#001B2A] tracking-[0.16px]' : 'text-[14px] text-[#6B7280]'}`}>
           {displayLabel}
         </span>
         {detail && (
-          <span className="text-[11px] text-slate-400 flex-shrink-0 whitespace-nowrap">• {detail}</span>
+          <span className="text-[14px] text-[#6B7280] flex-shrink-0 whitespace-nowrap">• {detail}</span>
         )}
       </div>
       {/* amount — never wraps */}
-      <span className={`text-xs font-mono flex-shrink-0 tabular-nums ${bold ? 'font-bold text-slate-800' : 'text-slate-500'} ${amount !== null && amount < 0 ? 'text-red-500' : ''}`}>
+      <span className={`flex-shrink-0 tabular-nums ${bold ? 'text-[14px] font-extrabold text-[#001B2A] leading-none' : 'text-[14px] text-[#374151]'} ${amount !== null && amount < 0 ? 'text-[#D6001C]' : ''}`}>
         {amountText}
       </span>
     </div>
@@ -598,9 +598,9 @@ const EmailReceiptPage = () => {
             <div className="h-[34px] w-[158px]">
               <img src={imgLogoEastarjet} alt="Eastar Jet" className="h-full w-full object-contain object-left" />
             </div>
-            <p className="text-[12px] text-[#6B7280] leading-[1.3] whitespace-nowrap">{tr.docTitle}</p>
+            <p className="text-[14px] text-[#6B7280] leading-none tracking-[-0.5px] whitespace-nowrap">{tr.docTitle}</p>
           </div>
-          <button className="border border-[#374151] rounded-[5px] px-[10px] py-[10px] text-[14px] font-bold tracking-[-0.5px] text-[#001B2A] hover:bg-slate-50 whitespace-nowrap">
+          <button className="border border-[#374151] rounded-[5px] px-[10px] py-[10px] text-[14px] font-medium tracking-[-0.5px] text-[#001B2A] hover:bg-slate-50 whitespace-nowrap">
             {tr.homepageBtn}
           </button>
         </header>
@@ -611,18 +611,18 @@ const EmailReceiptPage = () => {
           {/* 예약번호 + 예매날짜 행 */}
           <div className="flex justify-end items-center gap-4 flex-wrap">
             <div className="flex items-center gap-2">
-              <span className="text-[14px] font-normal text-[#111827] leading-[1.3]">{tr.bookingNo}</span>
-              <span className="text-[14px] font-bold text-[#D6001C] tracking-[-0.5px]">{reservation.bookingNo}</span>
+              <span className="text-[16px] font-bold text-[#111827] leading-[1.3] tracking-[0.16px]">{tr.bookingNo}</span>
+              <span className="text-[16px] font-bold text-[#D6001C] leading-[1.3] tracking-[0.16px]">{reservation.bookingNo}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[14px] font-normal text-[#111827] leading-[1.3]">{tr.bookingDate}</span>
-              <span className="text-[14px] font-bold text-[#374151] tracking-[-0.5px]">{reservation.bookingDate}</span>
+              <span className="text-[16px] font-bold text-[#111827] leading-[1.3] tracking-[0.16px]">{tr.bookingDate}</span>
+              <span className="text-[16px] font-bold text-[#374151] leading-[1.3] tracking-[0.16px]">{reservation.bookingDate}</span>
             </div>
           </div>
 
           {/* 여정정보 */}
           <section className="flex flex-col gap-4">
-            <h2 className="text-base font-black text-[#111827]">{tr.itinerarySection}</h2>
+            <h2 className="text-[18px] font-extrabold text-[#111827] leading-[1.3]">{tr.itinerarySection}</h2>
             <div className="space-y-3">
               {reservation.itineraries.map(it => {
                 const depCity = tr.cities[it.departure.code] ?? it.departure.city;
@@ -631,27 +631,27 @@ const EmailReceiptPage = () => {
                   <div key={it.id} className="bg-[#F9FAFB] px-6 py-4 rounded-xl border border-[#D8DAE0] flex flex-col gap-3">
                     {/* 배지(좌) + 편명(우) */}
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold px-2 py-1 rounded-full bg-[#FDF2F3] text-[#D6001C] border border-[#D6001C] whitespace-nowrap">
+                      <span className="text-[14px] font-medium leading-none tracking-[-0.5px] px-2 py-1 rounded-full bg-[#FDF2F3] text-[#D6001C] border border-[#D6001C] whitespace-nowrap">
                         {itTypeMap[it.type] ?? it.type}
                       </span>
-                      <span className="flex items-center gap-1 text-sm font-bold text-[#1F2937]">
-                        <span className="font-normal">{tr.flightLabel}</span>
-                        <span>{it.flightNo}</span>
+                      <span className="flex items-center gap-1 text-[16px] font-bold leading-[1.3] tracking-[0.16px] text-[#1F2937]">
+                        <span>{tr.flightLabel}</span>
+                        <span className="text-[#D6001C]">{it.flightNo}</span>
                       </span>
                     </div>
                     {/* 루트 + 날짜/시간 */}
                     <div className="flex flex-col gap-2">
-                      <p className="text-sm font-semibold text-[#111827] break-words">
+                      <p className="text-[16px] font-bold text-[#111827] leading-[1.3] tracking-[0.16px] break-words">
                         {depCity}({it.departure.code}) → {arrCity}({it.arrival.code})
                       </p>
-                      <div className="flex items-center gap-1 text-sm text-[#1F2937] flex-wrap">
+                      <div className="flex items-center gap-1 text-[16px] font-bold text-[#1F2937] leading-[1.3] tracking-[0.16px] flex-wrap">
                         <span>{formatDate(it.departure.date, lang)}</span>
                         <span className="tabular-nums">{it.departure.time} - {it.arrival.time}</span>
                       </div>
                     </div>
                     {/* 운임 / 수하물 정보 */}
                     {it.fareType && (
-                      <div className="flex items-center gap-1 text-xs text-[#1F2937] flex-wrap">
+                      <div className="flex items-center gap-1 text-[14px] text-[#1F2937] leading-[1.3] flex-wrap">
                         <span>{it.fareType === 'special' ? tr.fareTypeSpecial : tr.fareTypeRegular}</span>
                         <span>/</span>
                         <span>{tr.baggageBase}: {it.baggageKg === null ? tr.baggageNotIncluded : `${it.baggageKg}kg`}</span>
@@ -664,30 +664,30 @@ const EmailReceiptPage = () => {
             {/* 스케줄 안내 */}
             <div className="flex items-start gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#374151] flex-shrink-0 mt-[5px]" />
-              <p className="text-xs text-[#374151] leading-snug break-words">{tr.scheduleNote}</p>
+              <p className="text-[14px] text-[#374151] leading-[1.3] break-words">{tr.scheduleNote}</p>
             </div>
           </section>
 
           {/* 운임정보 */}
           <section className="flex flex-col gap-2">
-            <h2 className="text-base font-black text-[#111827]">{tr.fareSection}</h2>
+            <h2 className="text-[18px] font-extrabold text-[#111827] leading-[1.3]">{tr.fareSection}</h2>
             <div className="space-y-2">
               {reservation.passengers.map((p, i) => (
                 <div key={i} className="rounded-xl border border-[#D8DAE0] bg-white overflow-hidden">
                   {/* 승객 헤더 */}
                   <div className="flex justify-between items-center px-4 py-3 bg-[#F9FAFB] border-b border-[#D8DAE0] gap-3">
                     <div className="min-w-0 flex flex-col gap-1 flex-1 pr-2">
-                      <span className="text-xs font-bold px-2 py-0.5 rounded bg-[#D1D5DB] text-[#374151] self-start">
+                      <span className="text-[12px] font-bold leading-[1.5] px-2 py-0.5 rounded bg-[#D1D5DB] text-[#374151] self-start">
                         {pasTypeMap[p.type] ?? p.type}
                       </span>
-                      <p className="text-sm font-bold text-[#001B2A] break-all">{p.name}</p>
+                      <p className="text-[16px] font-bold text-[#001B2A] leading-[1.3] tracking-[0.16px] break-all">{p.name}</p>
                     </div>
                     {p.fare && (() => {
                       const color = 'text-[#D6001C]';
                       return (
                         <div className="flex items-center gap-1 flex-shrink-0">
-                          <span className={`text-sm font-bold ${color}`}>KRW</span>
-                          <span className={`text-lg font-bold ${color} tabular-nums`}>{(ver === 'v2' ? p.fare.airTransport.total : p.fare.airTransport.total + p.fare.ancillary.total).toLocaleString()}</span>
+                          <span className={`text-[14px] font-medium leading-none tracking-[-0.5px] ${color}`}>KRW</span>
+                          <span className={`text-[18px] font-extrabold leading-[1.3] ${color} tabular-nums`}>{(ver === 'v2' ? p.fare.airTransport.total : p.fare.airTransport.total + p.fare.ancillary.total).toLocaleString()}</span>
                         </div>
                       );
                     })()}
@@ -710,8 +710,8 @@ const EmailReceiptPage = () => {
                             {p.fare.ancillary.legs.map((leg, j) => (
                               <div key={j}>
                                 <div className="flex justify-between items-baseline gap-2 py-0.5 pl-3">
-                                  <span className="text-[11px] font-bold text-slate-600">{dirMap[leg.direction] ?? leg.direction}</span>
-                                  <span className="text-[11px] font-bold font-mono text-slate-600 tabular-nums flex-shrink-0">{leg.total.toLocaleString()}</span>
+                                  <span className="text-[14px] font-extrabold text-[#1F2937] leading-none">{dirMap[leg.direction] ?? leg.direction}</span>
+                                  <span className="text-[14px] font-extrabold text-[#1F2937] tabular-nums leading-none flex-shrink-0">{leg.total.toLocaleString()}</span>
                                 </div>
                                 <div className="space-y-0.5">
                                   {leg.items.map((item, k) => (
@@ -732,10 +732,10 @@ const EmailReceiptPage = () => {
 
           {/* 결제정보 */}
           <section className="flex flex-col gap-4">
-            <h2 className="text-base font-black text-[#1F2937]">{tr.paymentSection}</h2>
-            <div className="border border-[#D8DAE0] rounded-xl overflow-hidden text-xs font-bold">
+            <h2 className="text-[18px] font-extrabold text-[#1F2937] leading-[1.3]">{tr.paymentSection}</h2>
+            <div className="border border-[#D8DAE0] rounded-xl overflow-hidden text-[14px]">
               {/* 헤더 */}
-              <div className="bg-[#F9FAFB] flex items-start justify-between px-4 py-4 text-[#6B7280]">
+              <div className="bg-[#F9FAFB] flex items-start justify-between px-4 py-4 text-[#374151]">
                 <span className="flex-[1.2]">{tr.dateLabel}</span>
                 <span className="flex-1 text-center">{tr.methodLabel}</span>
                 <span className="flex-1 text-right">{tr.amountLabel}</span>
@@ -753,14 +753,14 @@ const EmailReceiptPage = () => {
 
           {/* 안내사항 */}
           <section className="flex flex-col gap-4">
-            <h2 className="text-base font-black text-[#111827]">{tr.noticesSection}</h2>
+            <h2 className="text-[18px] font-extrabold text-[#111827] leading-[1.3]">{tr.noticesSection}</h2>
             <div className="space-y-6">
               {tr.noticeSections.map((sec) => (
                 <div key={sec.title}>
-                  <p className="text-sm font-bold text-[#1F2937] tracking-tight mb-2">{sec.title}</p>
+                  <p className="text-[16px] font-bold text-[#1F2937] leading-[1.3] tracking-[0.16px] mb-2">{sec.title}</p>
                   <ul className="space-y-1">
                     {sec.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[12px] text-[#1F2937] leading-[1.3]">
+                      <li key={i} className="flex items-start gap-2 text-[14px] text-[#374151] leading-[1.3]">
                         <span className="mt-[5px] w-[3px] h-[3px] rounded-full bg-[#1F2937] flex-shrink-0" />
                         <span className="break-words min-w-0">{item}</span>
                       </li>
@@ -786,7 +786,7 @@ const EmailReceiptPage = () => {
           {/* 발신전용 안내 */}
           <p className="text-[12px] text-[#6B7280] text-center leading-[1.3]">
             본 메일은 발신전용이므로 회신되지 않습니다. 문의사항이 있으시면 고객센터의{' '}
-            <span className="font-bold text-[#6B7280] underline underline-offset-2">고객의말씀</span>을 이용해주십시오.
+            <span className="text-[14px] font-bold text-[#6B7280] underline underline-offset-2">고객의말씀</span>을 이용해주십시오.
           </p>
         </footer>
 
